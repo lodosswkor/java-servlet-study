@@ -1,0 +1,42 @@
+0. daanguen-app 이라는 dynamic web project 
+   tomcat port는 
+   tomcat admin port : 10001 
+   tomcat port : 11000 
+
+
+1. css/js 같은 정적 리소스들은 
+   /assets/ 밑에 이동시킨다. 
+
+   ex) css -> /assets/css/style.css 
+           -> /assets/js ...
+
+
+2. include 대상(guest) 파일의 위치는 
+   /inc 폴더로 한다
+   
+   ex) /inc/header.jsp 
+       /inc/footer.jsp 
+
+3. jsp:include 로 디자인 인클루드를 구성 
+   (ex) 해더같은 경우, 페이지별로 다르게 구성되어 있으므로
+   include시 if/else 로 다르게 디자인을 출력해 보세요. 
+    
+   ex) 
+   <% 
+      String type = request.getParameter("type"); 
+      if( type.equals("main") ) { 
+   %>
+        메인 해더  
+   <% 
+      } else if( type.equals("detail")) {
+   %>
+        디테일 해더 
+   <%   
+    } ...  
+
+
+    
+
+
+
+
