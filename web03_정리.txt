@@ -1,0 +1,95 @@
+1. jsp 스크립트 
+   - jsp에 java 코드를 넣기위한 방법 
+   - <% 자바코드 ..... %> 
+   ex) 
+   <% 
+      String name = "이종석"; 
+      out.println(name); 
+      for(int i = 0; i < 10; i++) {
+   %>      
+       <h1><%=i%>
+   <% } %>
+
+   a) 선언문
+   - jsp가 클래스(java)로 변환될때, class의 맴버(변수/메서드) -> 클래스 전역변수/매소드로 정의된다.  
+   <%! ... 선언문 ... %> 
+
+   b) 스크립틀릿 
+   <% ... 자바코드 ... %> 
+
+   c) 주석문 
+   <%-- 주석문 --%>
+
+2. Directive (디렉티브) 
+
+    대표적인 디렉티브는 아래와 같습니다. 
+    page   
+    include
+    
+   문법) 
+   <%@ 디렉티브 명 ... 속성=값...... %> 
+   ex) <%@page import="java.util.Date" %>
+   ex) <%@include file="파일명" %>
+
+   !) 디렉티브의 인클루드는 선 include 후 컴파일이기 때문에, 변수, 메서드등을 공유할 수 있다. 
+
+3. Action 테그 
+
+    forward 
+    include
+    useBean
+      
+   문법) 
+   <jsp:태그명 속성.....> </jsp:태그명>
+
+   - 파일명으로 페이지 결과가 "이동"된다. 하지만, 주소창의 url은 변경되지 않는다. 
+   <jsp:foward page="파일명" flush="false"></jsp:foward> 
+   <jsp:include page="파일명" flush="false"></jsp:include>
+
+   action 태그에서 값을 넘기고 싶을때는 parameter 태그를 사용합니다. 
+
+   ex) 
+   <jsp:include page="파일명" flush="false"> 
+     <jsp:param name="name" value="이종석" />
+   </jsp:include> 
+   
+   <jsp:foward page="파일명" flush="false">
+     <jsp:param name="id" value="lodossw" />
+     <jsp:param name="name" value="이종석" />
+   </jsp:foward> 
+
+   !!) 자바빈즈 사용 - useBean 
+    
+   a) 비지니스 로직의 분리 ( JSP에서 비지니스 로직을 분리 ) 
+   b) import 와 useBean   
+      
+      b-1) 개발자의 개입이(new 생성자()) useBean에서는 없다. 
+      b-2) useBean 태그는 scope 라는 개념이 존재해서, 객체의 생성/소멸 시점을 관리할 수 있다. 
+
+   문법 
+   <jsp:useBean id="사용할 변수명" class="패키지.클래스명" 
+        scope="page|session|request|application">
+     <jsp:setProperty name="" value="" />
+      
+   </jsp:useBean>
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+ 
+    
+
+
+
+   
+   
