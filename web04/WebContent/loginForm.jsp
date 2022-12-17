@@ -19,7 +19,9 @@
 <script type="text/javascript">
 
   // 1. 변수선언 
-  var name; // 혹은 let  
+  var name; // 혹은 let / const 
+  // let name; --> 변수명은 name 
+  // const pi = 3.14; --> 상수 
   
   // 2. 변수할당 
   name = "lodossw"; 
