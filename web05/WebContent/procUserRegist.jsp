@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="vo.WebUser" %>
+<%@ page import="vo.WebUser, java.util.List" %>
+<jsp:useBean id="userController" class="controller.UserController" scope="page"></jsp:useBean>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +11,10 @@
 </head>
 <body>
 <%
+   //- POST 한글 깨짐현상 처리 ----------------------------------
+   request.setCharacterEncoding("UTF-8");
+   //-------------------------------------------------------
+
    String web_id = request.getParameter("web_id"); // 아이디
    String web_pwd = request.getParameter("web_pwd"); // 비밀번호 
    String web_name = request.getParameter("web_name"); // 이름
@@ -21,6 +27,7 @@
    
    String web_introduce = request.getParameter("web_introduce"); // 자기소개 
    
+   //-- 1. WebUser 객체에 회원 데이터를 저장 
    WebUser user = new WebUser(); 
    user.setWebId(web_id);
    user.setWebPwd(web_pwd); 
@@ -33,6 +40,8 @@
    user.setWebCel(web_cel);
    user.setWebEmail(web_email); 
    
+   //-- 2. 메모리에 회원 데이터 저장 
+   userController.addUser(user);
    
 %>
 	 <h1>환영합니다!!</h1>
@@ -43,6 +52,20 @@
 	 </p>
 	 <p> 이메일 주소 : <%=user.getWebEmail() %></p>
 	 <p><%=user.getWebIntroduce() %></p>
+     
+     <h1>가입회원목록</h1>
+<%
+    List<WebUser> resultList = userController.getUserListAll();
+	int number = 1; 	
 
+	// for( int i = 0; i < resultList.size(); i++) { ((WebUser)resultList.get(i)).getWebName()}
+	for(WebUser dbUser : resultList) {
+%>     
+	   <p><%=number++ %> | <%=dbUser.getWebName()%> (<%=dbUser.getWebId() %>)</p>
+<%
+	} 
+%>
+     
+      
 </body>
 </html>
