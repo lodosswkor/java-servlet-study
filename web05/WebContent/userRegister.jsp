@@ -18,7 +18,10 @@
  
  <h2>회원가입</h2>
  
- <form>
+ <!--  POST 방식은 URL에 파라미터 값이 노출되지 않는다.  -->
+ <!--  mothod="GET", method="POST" -->
+ <form method="POST" action="procUserRegist.jsp">
+ 
 	 <p>아이디 : <input type="text" name="web_id" value=""></p>
 	 <p>패스워드 : <input type="password" name="web_pwd" value="" /></p>
 	 <p>이름 : <input type="text" name="web_name" value="" /></p>
@@ -45,7 +48,7 @@
 	 				 
 	 </p>
 	 <p> 
-	   <textarea name="web_introduce "></textarea>
+	   <textarea name="web_introduce"></textarea>
 	 </p>
 	 
 	 <p> 
