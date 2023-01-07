@@ -52,10 +52,35 @@ public class MemberDaoImpl implements MemberDao {
 		return result;
 	}
 
+	//-- true 면 로그인 성공 / false 로그인 실패
 	@Override
 	public boolean loginUser(MemberVo member) throws Exception {
 		// TODO Auto-generated method stub
-		return false;
+		
+		//1. conn
+		Connection conn = mysqlConn.getConnection();
+		
+		//2. Sql 템플릿 생성
+		String sql = "select * from members where " 
+				   + "userEmail = ? and userPwd = ?"; 
+		
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, member.getUserEmail());
+		pstmt.setString(2, member.getUserPwd());
+		
+		ResultSet rs = pstmt.executeQuery(); 
+		int resultCnt = (rs.next()) ? 1 : 0; 
+				
+		if(resultCnt > 0) {
+			member.setUserNo(rs.getInt("userNo"));
+			member.setRegistDate(rs.getString("registDate"));
+		}
+		
+		// 자원반납
+		rs.close();
+		pstmt.close();
+		conn.close(); 
+		return resultCnt > 0;
 	}
 
 	//-- 아이디(이메일)중복 확인  

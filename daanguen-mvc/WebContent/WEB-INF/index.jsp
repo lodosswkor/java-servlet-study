@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ page import="vo.MemberVo" %>
+
 <%  
 /*
 	Dao 동작확인 jsp:useBean id="memberDao" class="dao.MemberDaoImpl"></jsp:useBean
@@ -9,8 +10,6 @@
 	vo.setUserPwd("12345"); 
 	memberDao.insertMember(vo);
 */
-
-    MemberVo member = (MemberVo)session.getAttribute("sess_member");
 %>
 
 
@@ -23,9 +22,7 @@
 
     <div class="categories-group">
         <a href="categorized_index.jsp" class="btn btn-category">차량</a>
-        <a href="#" class="btn btn-category">
-        	<% if(member != null) out.print(member.getUserEmail() + " 로그인 성공"); %>
-        </a>
+        <a href="#" class="btn btn-category">인기매물</a>
         <a href="#" class="btn btn-category">가구/인테리어</a>
         <a href="#" class="btn btn-category">유아동/유아도서</a>
         <a href="#" class="btn btn-category">생활/가공식품</a>

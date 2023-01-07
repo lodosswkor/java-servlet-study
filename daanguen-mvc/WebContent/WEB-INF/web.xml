@@ -9,4 +9,40 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  
+  <!-- 회원가입 화면 -->
+  <!-- 객체생성 -->
+  <servlet>
+  	<servlet-name>memberSignUpController</servlet-name>
+  	<servlet-class>controller.MemberSignUpController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>memberSignUpController</servlet-name>
+    <url-pattern>/mvc2/signup.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- 회원가입 Process -->
+  <servlet>
+  	<servlet-name>memberSignUpProcController</servlet-name>
+  	<servlet-class>controller.MemberSignUpProcController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>memberSignUpProcController</servlet-name>
+    <url-pattern>/mvc2/signupProc.do</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- 로그인 폼 / proc 까지 -->
+  <servlet>
+  	<servlet-name>memberLoginController</servlet-name>
+  	<servlet-class>controller.MemberLoginController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>memberLoginController</servlet-name>
+  	<url-pattern>/mvc2/signin.do</url-pattern>
+  </servlet-mapping> 
+  
+  
+  
 </web-app>
