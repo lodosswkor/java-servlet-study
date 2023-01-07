@@ -20,16 +20,19 @@
 </nav>
 
     <div class="container container-sm container-sign">
-        <form class="form-sign">
+        <form class="form-sign" method="post" action="procSignUp.jsp">
             <h5 class="form-headline">🍲 계정 만들기 🐇</h5>
             <div class="form-group">
-                <input type="text" class="form-control" id="inputEmail" placeholder="이메일 입력">
+                <input type="text" class="form-control" id="userName" name="userName"  placeholder="회원명 입력">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" id="inputPassword" placeholder="비밀번호 입력">
+                <input type="text" class="form-control" id="userEmail" name="userEmail" placeholder="이메일 입력">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" id="confirmPassword" placeholder="비밀번호 확인하기">
+                <input type="password" class="form-control" id="userPwd" name="userPwd" placeholder="비밀번호 입력">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="userPwdConfirm" name="userPwdConfirm" placeholder="비밀번호 확인하기">
             </div>
 
             <button class="btn btn-block btn-primary">동의하고 시작하기</button>

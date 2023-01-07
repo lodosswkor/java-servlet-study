@@ -1,4 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ page import="vo.MemberVo" %>
+
+<%  
+/*
+	Dao 동작확인 jsp:useBean id="memberDao" class="dao.MemberDaoImpl"></jsp:useBean
+    MemberVo vo = new MemberVo(); 
+	vo.setUserName("이종석");
+	vo.setUserEmail("lodossw@gmail.com");
+	vo.setUserPwd("12345"); 
+	memberDao.insertMember(vo);
+*/
+%>
+
+
 <jsp:include page="/inc/header.jsp">
 	<jsp:param name="type" value="main" />
 </jsp:include>

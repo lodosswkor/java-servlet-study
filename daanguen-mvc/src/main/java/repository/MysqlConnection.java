@@ -10,9 +10,8 @@ public class MysqlConnection {
 
 	private Connection conn = null;
 	
-	
 	public Connection getConnection() throws Exception {
-		String jdbcUrl = "jdbc:mysql://ideatags.io:3306/daanguen_mvc?user=root&password=";
+		String jdbcUrl = "jdbc:mysql://ideatags.io:3306/daanguen_mvc?user=root&password=dlwhdtjrA123";
 		return getConnection(jdbcUrl); 
 	} 
 	
@@ -23,8 +22,8 @@ public class MysqlConnection {
 	}
 	
 	
-	public void closeConnection() {
-		
+	public void closeConnection() throws Exception {
+		conn.close();
 	}
 	
 	
