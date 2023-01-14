@@ -24,7 +24,16 @@ public class MainController {
 	@GetMapping(value={"","/"})
 	@ResponseBody
 	public List<MemberVo> index(@RequestParam("userNo") int userNo) {
+		
 		List<MemberVo> result = memberDao.getMemberList(userNo); 
+		
+		MemberVo vo = new MemberVo(); 
+		vo.setUserName("하악하악" + userNo);
+		vo.setUserEmail("LODOSSSW@GMAIL.COM" + userNo);
+		vo.setUserPwd("12345" + userNo);
+		
+		int affectedRows = memberDao.setMember(vo);
+		result.add(vo); //-- 새로 추가한 사람
 		return result;
 	}
 	

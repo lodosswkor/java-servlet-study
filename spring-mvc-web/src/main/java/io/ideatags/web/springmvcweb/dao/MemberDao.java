@@ -8,4 +8,5 @@ import io.ideatags.web.springmvcweb.vo.MemberVo;
 @Mapper
 public interface MemberDao {
 	List<MemberVo> getMemberList(int userNo);
+	int setMember(MemberVo vo); 
 }
