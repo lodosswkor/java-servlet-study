@@ -19,5 +19,10 @@
 		)
 	</insert>
 
+
+	<select id="getMemberListAll" parameterType="MemberVo" resultType="MemberVo">
+		SELECT * FROM members order by userNo DESC
+	</select>
+	
 </mapper>
 			
